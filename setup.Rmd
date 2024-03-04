@@ -176,7 +176,7 @@ We will install all the packages we need for this particular setup. This should 
 
 ```{r results=F}
 # Install python package into virtual environment
-reticulate::py_install(c("jupyter", "pandas", "matplotlib","statsmodels","scikit-learn", "seaborn", "mlxtend", "lime", "mkl-service", "xgboost", "lime", "gap-stat","scikit-learn-extra"), envname = "MLBA", pip=TRUE)
+reticulate::py_install(c("jupyter", "pandas", "matplotlib","statsmodels","scikit-learn", "seaborn", "mlxtend", "lime", "xgboost", "lime", "gap-stat","scikit-learn-extra"), envname = "MLBA", pip=TRUE)
 ```
 
 Let's checked if the package is installed successfully.
@@ -252,6 +252,13 @@ We can do the same thing in R by calling `py$OBJECT_NAME` by using `reticulate::
 ```{r}
 # plotting the iris data from python
 plot(py$iris_data)
+
+# # Convert index to string format
+# index_as_string <- as.character(rownames(py$iris_data))
+# 
+# # Plotting the iris data from Python
+# plot(py$iris_data, index = index_as_string)
+
 ```
 
 ## Modelling in R & Python
